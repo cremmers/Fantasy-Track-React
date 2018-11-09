@@ -55,7 +55,7 @@ class App extends Component {
 				        </ul>
 				    </div>
 			        <div className="col-md-6 col-sm-12 col-xs-12" id="roster">
-			          <h1 id="team_header">Roster</h1>
+			          <h1 id="team_header">Roster<a href="#player_header" className="btn btn-info" id="player_back">Back to Players</a></h1>
 				          <ul className="list-group" id="roster_list">
 				            <li className="list-group-item" id="p-1">
 				              <p>QB</p>
@@ -97,8 +97,7 @@ class App extends Component {
 			          <ResetButton resetSaveChange={this.handleSave} resetUpdateChange={this.handleUpdate} />
 			          <br />
 			          <DeleteTeamForm updateSet={this.state.updateButton} deleteSaveChange={this.handleSave} deleteUpdateChange={this.handleUpdate} /> 
-			          <br />     
-			          <a href="#player_header" className="btn btn-info" id="player_back">Back to Players</a>
+			          <br />     		          
 			        </div>
 				</div>         
 		      </div>

@@ -1,0 +1,7 @@
+{
+  "galaxy.meteor.com": {
+    "env": {
+      "MONGO_URL": "mongodb://cremmers:Delcorps1@ds125602.mlab.com:25602/fantasy-track"
+    }
+  } 
+}

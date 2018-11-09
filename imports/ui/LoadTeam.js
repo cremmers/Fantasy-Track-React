@@ -74,10 +74,11 @@ class LoadTeamForm extends Component {
 	        logo_element.setAttribute('alt',alt);
 	        load_player.appendChild(logo_element);
 
-			let name_element = document.createElement('a');
+			let name_element = document.createElement('p');
 			let position_element = document.createElement('p');
 			let team_element = document.createElement('p');
 			name_element.setAttribute('id',_id);
+			name_element.setAttribute('class','selected_player');
 			name_element.innerHTML = ' ' + name + ' ';
 			position_element.innerHTML = '-' + ' ' + position + ' ' + '-';
 			team_element.innerHTML = ' ' + player_team + ' ';
@@ -91,7 +92,7 @@ class LoadTeamForm extends Component {
   			delete_player.appendChild(x);
   			load_player.appendChild(delete_player);
   			delete_player.setAttribute('id','p' + [i+1] + '-del');
-  			delete_player.setAttribute('class','delete_button');
+  			delete_player.setAttribute('class','delete_player');
 			document.getElementById('roster_list').appendChild(load_player);
 		}
 

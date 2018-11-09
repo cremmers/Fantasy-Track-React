@@ -40,29 +40,37 @@
     overflow: scroll;
 }
 
+#player_list a {
+    text-decoration: none;
+}
+
 #player_list li p {
     display: inline;
     color: #337ab7;
 }
 
+#player_back {
+    margin: 10px;
+}
+
 #team_button {
     margin: 5px;
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    z-index: 1;
 }
 
 #team_header {
     text-align: center;
     color: #337ab7;
-    margin-bottom: 16px;
+    margin-bottom: 0px;
 }
 
 #player_header {
     text-align: center;
     color: #337ab7;
-    margin-bottom: 18px;
-}
-
-#roster_list li a {
-    pointer-events: none;
+    margin-bottom: 15px;
 }
 
 #roster_list li p {
@@ -73,6 +81,11 @@
 #team_list li p {
     display: inline;
     color: #337ab7;
+}
+
+.delete_player {
+    border-radius: 50%;
+    border: 1px solid gray;
 }
 
 #save_team {

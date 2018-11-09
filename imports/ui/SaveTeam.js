@@ -37,7 +37,8 @@ class SaveTeamForm extends Component {
 
 		// get ids of selected players
 		let player_elements = document.getElementById('roster_list').getElementsByTagName('li');
-		let players_selected = document.getElementById('roster_list').querySelectorAll('a');
+		let players_selected = document.getElementById('roster_list').querySelectorAll('p.selected_player');
+		console.log(player_elements);
 		console.log(players_selected);
 		let player_array = [];
 		let save_player_array = [];
@@ -46,7 +47,7 @@ class SaveTeamForm extends Component {
 		if (player_elements.length == players_selected.length) {
 			// loop through selected players and push players into array
 			for (let i=0; i < player_elements.length; i++) {
-				player_array.push(player_elements[i].querySelector('a').id);
+				player_array.push(player_elements[i].querySelector('p.selected_player').id);
 			};
 				
 			// get players from Players collection

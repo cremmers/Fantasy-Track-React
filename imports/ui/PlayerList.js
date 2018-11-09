@@ -19,10 +19,9 @@ class PlayerList extends Component {
   	event.preventDefault();
 
     // get player that was clicked on
-	  let player = event.target.parentNode.innerHTML;
-    let player_name = event.target.innerHTML;
+	  let player = event.currentTarget.innerHTML;
+    let player_name = event.currentTarget.innerHTML;
     console.log(player);
-    console.log(player_name);
 
     // show alert when a duplicate player is chosen
     if (document.getElementById('p-1').innerHTML.indexOf(player_name) != -1) {
@@ -57,6 +56,7 @@ class PlayerList extends Component {
       delete_player.appendChild(x);
       document.getElementById('p-1').appendChild(delete_player);
       delete_player.setAttribute('id', 'p1-del');
+      delete_player.setAttribute('class','delete_player');
 
       // recereate empty table slot
       document.getElementById('p1-del').onclick = function() {
@@ -84,6 +84,7 @@ class PlayerList extends Component {
       delete_player.appendChild(x);
       document.getElementById('p-2').appendChild(delete_player);
       delete_player.setAttribute('id', 'p2-del');
+      delete_player.setAttribute('class','delete_player');
 
       // recereate empty table slot
       document.getElementById('p2-del').onclick = function() {
@@ -109,6 +110,7 @@ class PlayerList extends Component {
       delete_player.appendChild(x);
       document.getElementById('p-3').appendChild(delete_player);
       delete_player.setAttribute('id', 'p3-del');
+      delete_player.setAttribute('class','delete_player');
 
       // recereate empty table slot
       document.getElementById('p3-del').onclick = function() {
@@ -136,6 +138,7 @@ class PlayerList extends Component {
       delete_player.appendChild(x);
       document.getElementById('p-4').appendChild(delete_player);
       delete_player.setAttribute('id', 'p4-del');
+      delete_player.setAttribute('class','delete_player');
 
       // recereate empty table slot
       document.getElementById('p4-del').onclick = function() {
@@ -163,6 +166,7 @@ class PlayerList extends Component {
       delete_player.appendChild(x);
       document.getElementById('p-5').appendChild(delete_player);
       delete_player.setAttribute('id', 'p5-del');
+      delete_player.setAttribute('class','delete_player');
 
       // recereate empty table slot
       document.getElementById('p5-del').onclick = function() {
@@ -190,6 +194,7 @@ class PlayerList extends Component {
       delete_player.appendChild(x);
       document.getElementById('p-7').appendChild(delete_player);
       delete_player.setAttribute('id', 'p7-del');
+      delete_player.setAttribute('class','delete_player');
 
       // recereate empty table slot
       document.getElementById('p7-del').onclick = function() {
@@ -217,6 +222,7 @@ class PlayerList extends Component {
       delete_player.appendChild(x);
       document.getElementById('p-6').appendChild(delete_player);
       delete_player.setAttribute('id', 'p6-del');
+      delete_player.setAttribute('class','delete_player');
 
       // recereate empty table slot
       document.getElementById('p6-del').onclick = function() {
@@ -238,12 +244,14 @@ class PlayerList extends Component {
   render() {
     return ( 
       <div>   	
-    		{this.props.players.map(player => <li key={player._id} value={player._id} className="list-group-item">
-  	      <img className="logo" src={player.logo} alt={player.alt} />
-  	      <a href="#" id={player._id} onClick={this.handleClick}> {player.name}</a>
-  	      <p> - {player.position}</p>
-  	      <p> - {player.team} </p>
-  	    </li>)}
+    		{this.props.players.map(player => <a href="#" key={player._id}>
+          <li className="list-group-item" onClick={this.handleClick}>          
+    	      <img className="logo" src={player.logo} alt={player.alt} />
+    	      <p id={player._id} className="selected_player"> {player.name}</p>
+    	      <p> - {player.position}</p>
+    	      <p> - {player.team} </p>
+          </li>
+          </a>)}
       </div>	
     )
   }
@@ -271,9 +279,9 @@ export class SearchPlayer extends Component {
 
     // loop through all list items, and hide those who don't match the search query
     for (let i=0; i < li.length; i++) {
-      let name = li[i].getElementsByTagName('a')[0];
-      let position = li[i].getElementsByTagName('p')[0];
-      let team = li[i].getElementsByTagName('p')[1];
+      let name = li[i].getElementsByTagName('p')[0];
+      let position = li[i].getElementsByTagName('p')[1];
+      let team = li[i].getElementsByTagName('p')[2];
       if (name.innerHTML.toUpperCase().indexOf(filter) > -1) {
           li[i].style.display = "";
       }

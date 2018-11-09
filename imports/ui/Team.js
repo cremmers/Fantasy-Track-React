@@ -49,7 +49,7 @@ export default TeamContainer = withTracker(() => {
   const loaded_team = Session.get('loadedTeam');
   const current_team = [];
   current_team.push(loaded_team);
-  console.log(loaded_team);
+  // console.log(loaded_team);
   const currentUser = Meteor.user();
   const loading = !team_subscription.ready();	
   return {
